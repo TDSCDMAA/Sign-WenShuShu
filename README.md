@@ -3,7 +3,7 @@
 本程序使用selenium编写
 
 
-# 使用教程1
+# 使用教程1 
 
 ### 1.获取Push Plus Token
 **首先打开[Push Plus](http://www.pushplus.plus/)点击登录，并使用微信扫描二维码**
