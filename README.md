@@ -1,6 +1,6 @@
 # Sign-WenShuShu
 **自动签到文叔叔**
-本程序使用selenium编写
+本程序使用selenium编写.
 
 
 # 使用教程1 
