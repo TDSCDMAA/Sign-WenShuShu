@@ -31,3 +31,21 @@ jobs:
                   PASSWORD: ${{ secrets.PASSWORD }}
                   PUSH_MESSAGE: ${{ secrets.PUSH_MESSAGE }}
                   SHOW_USER: ${{ secrets.SHOW_USER }}
+                  
+
+            - name: "生成保活时间戳"
+              run: |
+                  echo "# Auto Keepalive - $(date)" > keepalive.txt
+                  echo "Last updated: $(date -R)" >> keepalive.txt
+                  echo "Workflow: ${{ github.workflow }}" >> keepalive.txt
+                  
+            - name: "配置 Git 用户"
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "github-actions[bot]@users.noreply.github.com"
+                  
+            - name: "提交保活更改"
+              run: |
+                  git add keepalive.txt
+                  git commit -m "🔧 Auto keepalive: $(date +'%Y-%m-%d %H:%M')" || exit 0
+                  git push
